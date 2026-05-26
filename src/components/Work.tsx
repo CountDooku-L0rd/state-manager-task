@@ -1,36 +1,30 @@
-export const Work = ({ setStatistic }) => {
+import {store} from "../store/store.ts";
+import {observer} from "mobx-react-lite";
+
+export const Work = observer(() => {
   return (
     <>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+          store.setSatisfaction()
         }
       >
         Закрыть задачу
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+            store.setSatisfaction()
         }
       >
         Провести one-to-one
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+            store.setSatisfaction()
         }
       >
         Поговорить о повышении
       </button>
     </>
   );
-};
+});

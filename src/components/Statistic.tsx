@@ -1,18 +1,16 @@
-import { initialStatistic } from "../lib/constants";
+import {store} from "../store/store.ts";
+import {observer} from "mobx-react-lite";
 
-export const Statistic = ({
-  statistic: { satisfaction, clean, care, body },
-  setStatistic,
-}) => {
+export const Statistic = observer(() => {
   return (
     <>
       <ul>
-        <li>Удовлетворенность жизнью: {satisfaction}</li>
-        <li>Чистота: {clean}</li>
-        <li>Забота: {care}</li>
-        <li>Тело: {body}</li>
+        <li>Удовлетворенность жизнью: {store.satisfaction}</li>
+        <li>Чистота: {store.clean}</li>
+        <li>Забота: {store.care}</li>
+        <li>Тело: {store.body}</li>
       </ul>
-      <button onClick={() => setStatistic(initialStatistic)}>Очистить</button>
+      <button onClick={() => store.clear()}>Очистить</button>
     </>
   );
-};
+});

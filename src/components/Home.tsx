@@ -1,27 +1,30 @@
-export const Home = ({ setStatistic }) => {
+import {store} from "../store/store.ts";
+import {observer} from "mobx-react-lite";
+
+export const Home = observer(() => {
   return (
     <>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, clean: prev.clean + 1 }))
+          store.setClean()
         }
       >
         Полить цветы
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, care: prev.care + 1 }))
+          store.setCare()
         }
       >
         Покормить собаку
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, clean: prev.clean + 1 }))
+          store.setClean()
         }
       >
         Протереть пыль
       </button>
     </>
   );
-};
+});

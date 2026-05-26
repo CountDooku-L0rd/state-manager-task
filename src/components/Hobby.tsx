@@ -1,33 +1,30 @@
-export const Hobby = ({ setStatistic }) => {
+import {store} from "../store/store.ts";
+import {observer} from "mobx-react-lite";
+
+export const Hobby = observer(() => {
   return (
     <>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, body: prev.body + 1 }))
+          store.setBody()
         }
       >
         Сходить в спортзал
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+          store.setSatisfaction()
         }
       >
         Посмотреть фильм
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+          store.setSatisfaction()
         }
       >
         Приготовить пирог
       </button>
     </>
   );
-};
+});
