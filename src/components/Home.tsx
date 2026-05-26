@@ -1,23 +1,27 @@
-export const Home = ({ setStatistic }) => {
+import {useUnit} from "effector-react";
+import {setCare, setClean} from "../store/store.ts";
+
+export const Home = () => {
+    const [onClean, onCare] = useUnit([setClean, setCare])
   return (
     <>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, clean: prev.clean + 1 }))
+          onClean()
         }
       >
         Полить цветы
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, care: prev.care + 1 }))
+          onCare()
         }
       >
         Покормить собаку
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, clean: prev.clean + 1 }))
+          onClean()
         }
       >
         Протереть пыль

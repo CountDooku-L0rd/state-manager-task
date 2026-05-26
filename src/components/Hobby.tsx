@@ -1,29 +1,27 @@
-export const Hobby = ({ setStatistic }) => {
+import {useUnit} from "effector-react";
+import {setBody, setSatisfaction} from "../store/store.ts";
+
+export const Hobby = () => {
+    const [onBody, onSatisfaction] = useUnit([setBody, setSatisfaction])
   return (
     <>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, body: prev.body + 1 }))
+          onBody()
         }
       >
         Сходить в спортзал
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+          onSatisfaction()
         }
       >
         Посмотреть фильм
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+          onSatisfaction()
         }
       >
         Приготовить пирог

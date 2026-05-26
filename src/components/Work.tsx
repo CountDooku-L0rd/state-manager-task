@@ -1,32 +1,27 @@
-export const Work = ({ setStatistic }) => {
+import {useUnit} from "effector-react";
+import {setSatisfaction} from "../store/store.ts";
+
+export const Work = () => {
+    const onSatisfaction = useUnit(setSatisfaction);
   return (
     <>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+          onSatisfaction()
         }
       >
         Закрыть задачу
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+            onSatisfaction()
         }
       >
         Провести one-to-one
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({
-            ...prev,
-            satisfaction: prev.satisfaction + 1,
-          }))
+            onSatisfaction()
         }
       >
         Поговорить о повышении
