@@ -1,23 +1,26 @@
-export const Home = ({ setStatistic }) => {
+import useAppStore from "../store/store.ts";
+
+export const Home = () => {
+    const {setClean, setCare} = useAppStore();
   return (
     <>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, clean: prev.clean + 1 }))
+          setClean((currentClean) => currentClean + 1)
         }
       >
         Полить цветы
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, care: prev.care + 1 }))
+          setCare((currentCare) => currentCare + 1)
         }
       >
         Покормить собаку
       </button>
       <button
         onClick={() =>
-          setStatistic((prev) => ({ ...prev, clean: prev.clean + 1 }))
+          setClean((currentClean) => currentClean + 1)
         }
       >
         Протереть пыль

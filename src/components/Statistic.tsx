@@ -1,9 +1,7 @@
-import { initialStatistic } from "../lib/constants";
+import useAppStore from "../store/store.ts";
 
-export const Statistic = ({
-  statistic: { satisfaction, clean, care, body },
-  setStatistic,
-}) => {
+export const Statistic = () => {
+    const {satisfaction, clean, care, body, clear} = useAppStore();
   return (
     <>
       <ul>
@@ -12,7 +10,7 @@ export const Statistic = ({
         <li>Забота: {care}</li>
         <li>Тело: {body}</li>
       </ul>
-      <button onClick={() => setStatistic(initialStatistic)}>Очистить</button>
+      <button onClick={() => clear()}>Очистить</button>
     </>
   );
 };
